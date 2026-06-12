@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: tienda_online2
+    database: tienda_online2
+    schema: public
+    tables:
+      - name: orders
+      - name: order_items
+      - name: books
+      - name: categories
+      - name: users

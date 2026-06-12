@@ -1,0 +1,44 @@
+version: 2
+
+models:
+  - name: stg_orders
+    description: "Órdenes limpias y estandarizadas"
+    columns:
+      - name: order_id
+        description: "ID único de la orden"
+        data_tests:
+          - unique
+          - not_null
+      - name: status
+        data_tests:
+          - not_null
+          - accepted_values:
+              values: ['PENDING', 'PAID', 'CANCELLED']
+      - name: total
+        data_tests:
+          - not_null
+
+  - name: stg_order_items
+    description: "Items de órdenes limpios"
+    columns:
+      - name: item_id
+        data_tests:
+          - unique
+          - not_null
+      - name: order_id
+        data_tests:
+          - not_null
+      - name: quantity
+        data_tests:
+          - not_null
+
+  - name: stg_books
+    description: "Libros limpios y estandarizados"
+    columns:
+      - name: book_id
+        data_tests:
+          - unique
+          - not_null
+      - name: book_name
+        data_tests:
+          - not_null
